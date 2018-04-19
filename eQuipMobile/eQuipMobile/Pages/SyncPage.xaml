@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    Title="Sync"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="eQuipMobile.SyncPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="0, 50, 0, 0" HorizontalOptions="Center">
+                <StackLayout Padding="20, 0, 20, 0">
+                    <Label Text="Welcome to the the Sync screen!" HorizontalTextAlignment="Center" VerticalOptions="Start" HorizontalOptions="CenterAndExpand" />
+                    <Label Text="The sync process gets a snapshot of your account and stores it to the local database." HorizontalTextAlignment="Center" VerticalOptions="Start" HorizontalOptions="CenterAndExpand"/>
+                    <Label Text="Any changes made locally will be seent to your account and your local data updated." HorizontalTextAlignment="Center" VerticalOptions="Start" HorizontalOptions="CenterAndExpand"/>
+                    <Label Text="Do you want to begin the sync process?" HorizontalTextAlignment="Center" VerticalOptions="Start" HorizontalOptions="CenterAndExpand"/>
+                    <StackLayout Margin='0,30,0,0' Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
+                        <Button Text="Sync Later" Clicked="SyncLaterButton" BackgroundColor="#EC1F4B" TextColor="Black" WidthRequest="100"/>
+                        <Button Text="Sync Now" BackgroundColor="#3F2BB1" Clicked="SyncNowButton" TextColor="White" WidthRequest="100"/>
+                    </StackLayout>
+                    <StackLayout Padding="0,30,0,0">
+                        <Label x:Name="pg1Label" Text=""/>
+                        <ProgressBar  x:Name = "pg1" Progress="0"/>
+                        <ActivityIndicator x:Name="ActivityIndicator" Color="Green" IsVisible="False"/>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

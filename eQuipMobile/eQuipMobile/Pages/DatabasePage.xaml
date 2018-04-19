@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="eQuipMobile.DatabasePage">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="Center">
+            <Label/>
+            <Button Text="Show Login Records" Clicked="Button_Clicked"/>
+            <Button Text="Show Sites Records" Clicked="Button_Clicked1"/>
+            <Button Text="Test Records" Clicked="TestButton"/>
+            <!--<ListView x:Name="LoginDatabaseList" Margin="0,20,0,20" 
+                      HasUnevenRows="True" SeparatorVisibility="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame OutlineColor="Gray" CornerRadius="10" Margin="0,0,0,20" BackgroundColor="Yellow" >
+                                <StackLayout BackgroundColor="Pink">
+                                    <Label Text="{Binding UserID, StringFormat='UserId is {0:F2}'}" TextColor="Blue"/>
+                                    <Label Text="{Binding RoleID, StringFormat='RoleId is {0:F2}'}" TextColor="Blue"/>
+                                    <Label Text="{Binding MobileSites, StringFormat='Mobile Sites are {0:F2}'}" TextColor="Blue"/>
+                                    <Label Text="{Binding AllowDuplicateBarcode, StringFormat='DuplicateBarcodeBool is {0:F2}'}" TextColor="Blue"/>
+                                    <Label Text="{Binding Permissions, StringFormat='Permissions are {0:F2}'}" TextColor="Blue"/>
+                                    <Label Text="{Binding Framework, StringFormat='Framework is {0:F2}'}" TextColor="Blue"/>
+                                    <Label Text="{Binding eQuipVersion, StringFormat='EquipVersion is {0:F2}'}" TextColor="Blue"/>
+                                    <Label Text="{Binding RequiredFields, StringFormat='RequiredFields are {0:F2}'}" TextColor="Blue"/>
+                                </StackLayout>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>-->
+            <!--<ListView x:Name="SitesDatabaseList" Margin="0,20,0,20" 
+                      HasUnevenRows="True" SeparatorVisibility="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame OutlineColor="Gray" CornerRadius="10" Margin="0,0,0,20" BackgroundColor="Yellow" >
+                                <StackLayout BackgroundColor="Pink">
+                                    <Label Text="{Binding Id, StringFormat='Id is {0:F2}'}" TextColor="Blue"/>
+                                    <Label Text="{Binding SiteIdInternal, StringFormat='SiteIdInternal is {0:F2}'}" TextColor="Blue"/>
+                                    <Label Text="{Binding SiteName, StringFormat='SiteName is {0:F2}'}" TextColor="Blue"/>
+                                    <Label Text="{Binding SiteCode, StringFormat='SiteCode is {0:F2}'}" TextColor="Blue"/>
+                                    <Label Text="{Binding SiteDescription, StringFormat='SiteDescription is {0:F2}'}" TextColor="Blue"/>
+                                </StackLayout>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>-->
+            <ListView x:Name="SitesDatabaseList" Margin="0,20,0,20" 
+                      HasUnevenRows="True" SeparatorVisibility="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame OutlineColor="Gray" CornerRadius="10" Margin="0,0,0,20" BackgroundColor="Yellow" >
+                                <StackLayout BackgroundColor="Pink">
+                                    <Label Text="{Binding SubLocationName, StringFormat='SubLocationName is {0:F2}'}" TextColor="Blue"/>
+                                    <Label Text="{Binding Location_ID_Internal, StringFormat='Location_ID_Internal is {0:F2}'}" TextColor="Blue"/>
+                                    <Label Text="{Binding SubLocationID_Internal, StringFormat='SubLocationID_Internal is {0:F2}'}" TextColor="Blue"/>
+                                    <Label Text="{Binding LocationName, StringFormat='LocationName is {0:F2}'}" TextColor="Blue"/>
+                                </StackLayout>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="eQuipMobile.SaveAndContinuePage"
+             Title="Workflow Audit">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout HorizontalOptions="Center" Margin="20, 20, 20, 0">
+                <Label x:Name ="BarcodeBartext"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" Margin="20,10,20,10" VerticalOptions="Center">
+                <Label Text="Department" VerticalOptions="Center"/>
+                <Picker Title="Select Department" x:Name="assetDepartment_" WidthRequest="200" HorizontalOptions="EndAndExpand" />
+            </StackLayout>
+
+            <StackLayout Margin="20,0,20,0" >
+                <Label HorizontalOptions="Center" Text="Last asset audited"/>
+                <ListView x:Name="AssetListView" Margin="0,10,0,10" 
+                          HasUnevenRows="True" SeparatorVisibility="None" 
+                          ItemSelected="AssetListView_ItemSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame OutlineColor="Black" CornerRadius="10" BackgroundColor="Transparent" HasShadow="False">
+                                    <Frame.Padding>
+                                        <OnPlatform x:TypeArguments="Thickness"
+                                            Android="1,1,1,1"
+                                            iOS="10,10,10,10">
+                                        </OnPlatform>
+                                    </Frame.Padding>
+                                    <Frame.BackgroundColor>
+                                        <OnPlatform x:TypeArguments="Color"
+                                            Android="Black">
+                                        </OnPlatform>
+                                    </Frame.BackgroundColor>
+                                    <Frame.Margin>
+                                        <OnPlatform x:TypeArguments="Thickness"
+                                                Android="1,1,1,1"
+                                                iOS="5,5,5,5">
+                                        </OnPlatform>
+                                    </Frame.Margin>
+
+                                    <StackLayout BackgroundColor="Transparent">
+                                        <StackLayout.Padding>
+                                            <OnPlatform x:TypeArguments="Thickness"
+                                            Android="15,5,5,5"
+                                            iOS="10,10,10,0">
+                                            </OnPlatform>
+                                        </StackLayout.Padding>
+                                        <StackLayout.Margin>
+                                            <OnPlatform x:TypeArguments="Thickness"
+                                                Android="1,1,1,1"
+                                                iOS="5,5,5,5">
+                                            </OnPlatform>
+                                        </StackLayout.Margin>
+                                        <StackLayout.BackgroundColor>
+                                            <OnPlatform x:TypeArguments="Color"
+                                                Android="White">
+                                            </OnPlatform>
+                                        </StackLayout.BackgroundColor>
+                                        <Label Text="{Binding AssetName}" TextColor="#A0384C" FontAttributes="Bold"/>
+                                        <Label Text="{Binding AssetDisplayBarcode_}" TextColor="Black"/>
+                                        <Label Text="{Binding AssetDisplayAuditStatus_}" TextColor="Black"/>
+                                        <Label Text="{Binding AssetDisplayQty_}" TextColor="Black"/>
+                                        <Label Text="{Binding AssetDisplayOrig_}" TextColor="Black"/>
+                                        <Label Text="{Binding AssetDisplayUID_}" TextColor="Black"/>
+                                        <Label Text="{Binding AssetDisplaySerial_}" TextColor="Black"/>
+                                    </StackLayout>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <ListView x:Name="AssetListView2" Margin="0,10,0,10" 
+                          HasUnevenRows="True" SeparatorVisibility="None" 
+                          ItemSelected="AssetListView_ItemSelected" IsVisible="False">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame OutlineColor="Black" CornerRadius="10" BackgroundColor="Transparent" HasShadow="False">
+                                    <Frame.Padding>
+                                        <OnPlatform x:TypeArguments="Thickness"
+                                            Android="1,1,1,1"
+                                            iOS="10,10,10,10">
+                                        </OnPlatform>
+                                    </Frame.Padding>
+                                    <Frame.BackgroundColor>
+                                        <OnPlatform x:TypeArguments="Color"
+                                            Android="Black">
+                                        </OnPlatform>
+                                    </Frame.BackgroundColor>
+                                    <Frame.Margin>
+                                        <OnPlatform x:TypeArguments="Thickness"
+                                                Android="1,1,1,1"
+                                                iOS="5,5,5,5">
+                                        </OnPlatform>
+                                    </Frame.Margin>
+
+                                    <StackLayout BackgroundColor="Transparent">
+                                        <StackLayout.Padding>
+                                            <OnPlatform x:TypeArguments="Thickness"
+                                            Android="15,5,5,5"
+                                            iOS="10,10,10,0">
+                                            </OnPlatform>
+                                        </StackLayout.Padding>
+                                        <StackLayout.Margin>
+                                            <OnPlatform x:TypeArguments="Thickness"
+                                                Android="1,1,1,1"
+                                                iOS="5,5,5,5">
+                                            </OnPlatform>
+                                        </StackLayout.Margin>
+                                        <StackLayout.BackgroundColor>
+                                            <OnPlatform x:TypeArguments="Color"
+                                                Android="White">
+                                            </OnPlatform>
+                                        </StackLayout.BackgroundColor>
+                                        <Label Text="{Binding AssetName}" TextColor="#A0384C" FontAttributes="Bold"/>
+                                        <Label Text="{Binding AssetDisplayBarcode_}" TextColor="Black"/>
+                                        <Label Text="{Binding AssetDisplayAuditStatus_}" TextColor="Black"/>
+                                        <Label Text="{Binding AssetDisplayOrig_}" TextColor="Black"/>
+                                        <Label Text="{Binding AssetDisplayUID_}" TextColor="Black"/>
+                                        <Label Text="{Binding AssetDisplaySerial_}" TextColor="Black"/>
+                                    </StackLayout>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+
+
+                <StackLayout>
+                    <Frame CornerRadius="10" HasShadow="False" OutlineColor="Transparent" BackgroundColor="LightGreen">
+                        <StackLayout>
+                            <StackLayout VerticalOptions="Center">
+                                <SearchBar Placeholder="Search..." PlaceholderColor="Black"
+                                       BackgroundColor="Transparent" TextColor="Black" CancelButtonColor="Red" x:Name="AuditSearchBar" HeightRequest="50"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                                <Button x:Name="SearchButton" Text="Search..." Margin="0,0,10,0" Clicked="Button_Clicked" BackgroundColor="LightBlue" WidthRequest="190" TextColor="Black"/>
+                                <Image x:Name="BarcodeImage" Margin="50,0,10,0" WidthRequest="30" HeightRequest="30">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="BarcodeIconTapped"/>
+                                    </Image.GestureRecognizers>
+                                </Image>
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="0,0,0,5">
+                <Button Text="Cancel" Margin="10,0,10,0" Clicked="CancelButton" WidthRequest="150">
+                    <Button.BackgroundColor>
+                        <OnPlatform 
+                            x:TypeArguments="Color"
+                            Android="#EC1F4B">
+                        </OnPlatform>
+                    </Button.BackgroundColor>
+                </Button>
+                <Button Text="Show Summary" Margin="10,0,10,0" Clicked="ShowSummary" WidthRequest="150">
+                    <Button.BackgroundColor>
+                        <OnPlatform 
+                            x:TypeArguments="Color"
+                            Android="LightBlue">
+                        </OnPlatform>
+                    </Button.BackgroundColor>
+                </Button>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

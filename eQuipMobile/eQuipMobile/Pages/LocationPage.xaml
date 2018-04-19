@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    Title="Location(s)"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="eQuipMobile.LocationPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout HorizontalOptions="Center" Margin="0, 20, 0, 0">
+                <Label HorizontalOptions="Center" Text="{Binding SiteName}" Font="28"/>
+                <Label Text="Click on one of the Locations to select it."/>
+            </StackLayout>
+
+            <StackLayout Margin=" 20,20,20,0">
+                <Frame CornerRadius="10" HasShadow="False" OutlineColor="Transparent" BackgroundColor="LightGreen">
+                    <StackLayout>
+                        <StackLayout VerticalOptions="Center">
+                            <SearchBar x:Name="SearchBar_" Placeholder="Search..." PlaceholderColor="Black"
+                                   TextChanged="SearchBar_TextChanged" 
+                                   BackgroundColor="Transparent" TextColor="Black" CancelButtonColor="Red" HeightRequest="50"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                            <Image x:Name="BarcodeImage" Margin="0,10,0,0" WidthRequest="30" HeightRequest="30">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="BarcodeIconTapped"/>
+                                </Image.GestureRecognizers>
+                            </Image>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+                <ListView x:Name="locationListView" Margin="0,20,0,20"  
+                          HasUnevenRows="True" ItemSelected="LocationListView_ItemSelected" 
+                          ItemTapped="LocationListView_ItemTapped" SeparatorVisibility="None">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame OutlineColor="Black" CornerRadius="10" BackgroundColor="Transparent" HasShadow="False">
+                                    <Frame.Padding>
+                                        <OnPlatform x:TypeArguments="Thickness"
+                                            Android="1,1,1,1"
+                                            iOS="10,10,10,10">
+                                        </OnPlatform>
+                                    </Frame.Padding>
+                                    <Frame.BackgroundColor>
+                                        <OnPlatform x:TypeArguments="Color"
+                                            Android="Black">
+                                        </OnPlatform>
+                                    </Frame.BackgroundColor>
+                                    <Frame.Margin>
+                                        <OnPlatform x:TypeArguments="Thickness"
+                                                Android="1,1,1,1"
+                                                iOS="5,5,5,5">
+                                        </OnPlatform>
+                                    </Frame.Margin>
+
+
+                                    <StackLayout BackgroundColor="Transparent">
+                                        <StackLayout.Padding>
+                                            <OnPlatform x:TypeArguments="Thickness"
+                                            Android="15,5,5,5"
+                                            iOS="10,10,10,0">
+                                            </OnPlatform>
+                                        </StackLayout.Padding>
+                                        <StackLayout.Margin>
+                                            <OnPlatform x:TypeArguments="Thickness"
+                                                Android="1,1,1,1"
+                                                iOS="5,5,5,5">
+                                            </OnPlatform>
+                                        </StackLayout.Margin>
+                                        <StackLayout.BackgroundColor>
+                                            <OnPlatform x:TypeArguments="Color"
+                                                Android="White">
+                                            </OnPlatform>
+                                        </StackLayout.BackgroundColor>
+                                        <Label Text="{Binding LocationName}" TextColor="#A0384C" FontAttributes="Bold"/>
+                                        <Label Text="{Binding LocationDisplayDescription_}" TextColor="Black"/>
+                                        <Label Text="{Binding LocationDisplayBarcode_}" TextColor="Black"/>
+                                        <Label Text="{Binding SubLocationCount_}" TextColor="Black"/>
+                                        <Label Text="{Binding Count, StringFormat='No. of assets: {0:F0}'}" TextColor="Black"/>
+                                    </StackLayout>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

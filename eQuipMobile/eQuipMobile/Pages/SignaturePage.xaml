@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:signature="clr-namespace:SignaturePad.Forms;assembly=SignaturePad.Forms"
+             x:Class="eQuipMobile.SignaturePage"
+             Title="Signature Page">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="Center" Margin="20">
+        <signature:SignaturePadView x:Name="padView"
+                                HeightRequest="150" WidthRequest="240"
+                                BackgroundColor="White"
+                                CaptionText="Sign on the line above" CaptionTextColor="Black"
+                                ClearText="Clear" ClearTextColor="Black"
+                                SignatureLineColor="Aqua" StrokeColor="Black" StrokeWidth="2" />
+            <!--<Button Clicked="OnChangeTheme" Text="Change Theme" />-->
+            <Button Clicked="OnGetImage" Text="Check out" >
+                <Button.BackgroundColor>
+                    <OnPlatform 
+                            x:TypeArguments="Color"
+                            Android="#3F2BB1">
+                    </OnPlatform>
+                </Button.BackgroundColor>
+                <Button.TextColor>
+                    <OnPlatform 
+                            x:TypeArguments="Color"
+                            Android="White">
+                    </OnPlatform>
+                </Button.TextColor>
+            </Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

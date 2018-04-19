@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.eisg.eQuipMobileApp" android:installLocation="auto">
+	<uses-sdk android:minSdkVersion="14" />
+  <uses-permission android:name="com.honeywell.decode.permission.DECODE"/>​
+  <application android:label="eQuip!Mobile" android:icon="@drawable/icon">
+		<provider android:name="android.support.v4.content.FileProvider" android:authorities="com.eisg.eQuipMobileApp.fileprovider" android:exported="false" android:grantUriPermissions="true">
+			<meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths"></meta-data>
+		</provider>
+		<activity android:name=".MainActivity" android:label="eQuipMobile" android:launchMode="singleTask">
+			<intent-filter>
+				<action android:name="eQuipMobile.RECVR" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</activity>
+	</application>
+</manifest>

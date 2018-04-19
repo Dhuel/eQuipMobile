@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="eQuipMobile.ScanBarcodeUpdatePage"
+             Title="Scanned Barcode">
+    <ContentPage.Content>
+        <StackLayout  Margin=" 20,0,20,0" HorizontalOptions="Center" VerticalOptions="Center">
+            <ScrollView>
+                <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                    <ListView x:Name="scanbarcodeupdateasset" 
+                            ItemSelected="Scanbarcodeupdateasset_ItemSelected"
+                            ItemTapped="Scanbarcodeupdateasset_ItemTapped"
+                            Margin="0,20,0,20" 
+                            HasUnevenRows="True"
+                            SeparatorVisibility="None">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Frame OutlineColor="Black" CornerRadius="10" BackgroundColor="Transparent" HasShadow="False" >
+                                        <Frame.Padding>
+                                            <OnPlatform x:TypeArguments="Thickness"
+                                            Android="1,1,1,1"
+                                            iOS="10,10,10,10">
+                                            </OnPlatform>
+                                        </Frame.Padding>
+                                        <Frame.BackgroundColor>
+                                            <OnPlatform x:TypeArguments="Color"
+                                            Android="Black">
+                                            </OnPlatform>
+                                        </Frame.BackgroundColor>
+                                        <Frame.Margin>
+                                            <OnPlatform x:TypeArguments="Thickness"
+                                                Android="1,1,1,1"
+                                                iOS="5,5,5,5">
+                                            </OnPlatform>
+                                        </Frame.Margin>
+
+
+                                        <StackLayout BackgroundColor="Transparent">
+                                            <StackLayout.Padding>
+                                                <OnPlatform x:TypeArguments="Thickness"
+                                            Android="15,5,5,5"
+                                            iOS="10,10,10,0">
+                                                </OnPlatform>
+                                            </StackLayout.Padding>
+                                            <StackLayout.Margin>
+                                                <OnPlatform x:TypeArguments="Thickness"
+                                                Android="1,1,1,1"
+                                                iOS="5,5,5,5">
+                                                </OnPlatform>
+                                            </StackLayout.Margin>
+                                            <StackLayout.BackgroundColor>
+                                                <OnPlatform x:TypeArguments="Color"
+                                                Android="White">
+                                                </OnPlatform>
+                                            </StackLayout.BackgroundColor>
+                                            <Label Text="{Binding AssetName, StringFormat='{0:F0}'}" FontSize="22" TextColor="#A0384C" FontAttributes="Bold"/>
+                                            <Label Text="{Binding AsseDetailBarcode_}" TextColor="Black"/>
+                                            <Label Text="{Binding AsseDetailQuantity_}" TextColor="Black"/>
+                                            <Label Text="{Binding AsseDetailSite_}" TextColor="Black"/>
+                                            <Label Text="{Binding AsseDetailLocation_}" TextColor="Black"/>
+                                            <Label Text="{Binding AsseDetailSubLocation_}" TextColor="Black"/>
+                                            <Label Text="{Binding AsseDetailSerialNo_}" TextColor="Black"/>
+                                            <Label Text="{Binding AsseDetailCost_}" TextColor="Black"/>
+                                        </StackLayout>
+                                    </Frame>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </ScrollView>
+
+            <StackLayout>
+                <StackLayout HorizontalOptions="Center">
+                    <Label Text="{Binding AssetQuantity_, StringFormat='Adjust {0:F0} (+/-):'}"/>
+                    <Entry x:Name="quantity_" WidthRequest="20" Keyboard="Numeric"/>
+                </StackLayout>
+                <StackLayout HorizontalOptions="Center" Margin="0,0,0,40">
+                    <Label Text="{Binding AssetCost_, StringFormat='Change {0:F0}:'}"/>
+                    <Entry x:Name="price_" WidthRequest="10" Keyboard="Numeric"/>
+                </StackLayout>
+                <StackLayout HorizontalOptions="Center" Orientation="Horizontal" Margin="0,20,0,20">
+                    <Button Margin="20,0,20,0" Text="Cancel" Clicked="Cancel" BackgroundColor="#EC1F4B" TextColor="Black" WidthRequest="100"/>
+                    <Button Margin="20,0,20,0" Text="Update" Clicked="Update" BackgroundColor="#3F2BB1" TextColor="White" WidthRequest="100"/>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

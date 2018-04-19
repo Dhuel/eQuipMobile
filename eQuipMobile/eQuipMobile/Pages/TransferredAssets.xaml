@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:signature="clr-namespace:SignaturePad.Forms;assembly=SignaturePad.Forms"
+             x:Class="eQuipMobile.TransferredAssets"
+             Title="Moving Assets">
+    <ContentPage.Content>
+        <StackLayout Margin="20">
+            <ScrollView x:Name="_scrollview"/>
+            <signature:SignaturePadView x:Name="padView"
+                                HeightRequest="150" WidthRequest="240"
+                                BackgroundColor="White"
+                                CaptionText="Sign on the line above" CaptionTextColor="Black"
+                                ClearText="Clear" ClearTextColor="Black"
+                                SignatureLineColor="Aqua" StrokeColor="Black" StrokeWidth="2" />
+            <StackLayout>
+                <Button Text="Complete Transfer" Clicked="Complete_Transfer"/>
+            </StackLayout>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

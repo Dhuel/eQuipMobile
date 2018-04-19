@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="eQuipMobile.AuditRecordPage"
+             Title="Asset Record">
+    <ContentPage.Content>
+        <StackLayout Margin="10,10,10,20" VerticalOptions="CenterAndExpand">
+            <StackLayout HorizontalOptions="Center" >
+                <Label Text="Asset record being audited" TextColor="#A0384C" FontAttributes="Bold"/>
+            </StackLayout>
+            <StackLayout VerticalOptions="Center" Margin="10,10,10,20">
+                <StackLayout Orientation="Horizontal"   Margin="10,0,0,0" VerticalOptions="CenterAndExpand">
+                    <Label x:Name="AssetName_"  VerticalOptions="Center"/>
+                    <Entry Text="{Binding AssetName}" IsEnabled="False"  x:Name="assetName_" Keyboard="Text" WidthRequest="200" HorizontalOptions="EndAndExpand" Placeholder=""/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal"  Margin="10,0,0,0" VerticalOptions="CenterAndExpand">
+                    <Label x:Name="AssetBarcode_" VerticalOptions="Center" />
+                    <Entry  Text="{Binding Barcode}" IsEnabled="False" x:Name="assetBarcode_" Keyboard="Text" WidthRequest="200" HorizontalOptions="EndAndExpand" Placeholder=""/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Margin="10,0,0,0" VerticalOptions="CenterAndExpand">
+                    <Label x:Name="AssetSerial_" VerticalOptions="Center" />
+                    <Entry  Text="{Binding AssetSerialNo}" IsEnabled="False" x:Name="assetSerialNo_" Keyboard="Text" WidthRequest="200" HorizontalOptions="EndAndExpand" Placeholder=""/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal"  Margin="10,0,0,0" VerticalOptions="CenterAndExpand">
+                    <Label x:Name="AuditStatus_" VerticalOptions="Center"/>
+                    <Entry Text="{Binding AuditStatus}" x:Name="auditStatus_" IsEnabled="False" Keyboard="Text" WidthRequest="200" HorizontalOptions="EndAndExpand" Placeholder=""/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal"  Margin="10,0,0,0" VerticalOptions="CenterAndExpand">
+                    <Label Text="Audit date" VerticalOptions="Center" />
+                    <Entry Text="" x:Name="auditDate_" Keyboard="Text" IsEnabled="False" WidthRequest="200" HorizontalOptions="EndAndExpand" Placeholder=""/>
+                </StackLayout>
+                <StackLayout  x:Name="QuantityDisplay" Orientation="Horizontal"  Margin="10,0,0,0" VerticalOptions="CenterAndExpand">
+                    <Label x:Name="AssetQty_" VerticalOptions="Center"/>
+                    <Entry Text="{Binding Quantity}" IsEnabled="False" x:Name="Quantity_"  Keyboard="Numeric" WidthRequest="200"  HorizontalOptions="EndAndExpand" Placeholder=""/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal"  Margin="10,0,0,0" VerticalOptions="CenterAndExpand">
+                    <Label x:Name="ActualAssetQty_" VerticalOptions="Center"/>
+                    <Entry x:Name="ActualQuantity_"  Keyboard="Numeric" WidthRequest="200"  HorizontalOptions="EndAndExpand" Placeholder=""/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal"  Margin="10,0,0,0" VerticalOptions="CenterAndExpand">
+                    <Label Text="Date Modified" VerticalOptions="Center"/>
+                    <Entry Text="{Binding DateModified}" x:Name="dateModified_" IsEnabled="False"  Keyboard="Text" WidthRequest="200" HorizontalOptions="EndAndExpand" Placeholder=""/>
+                </StackLayout>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal"  HorizontalOptions="Center" Margin="0,30,0,0">
+                <Button x:Name="BackButton_" Text="Back" Clicked="BackButton" Margin="10,0,10,0" WidthRequest="150">
+                    <Button.BackgroundColor>
+                        <OnPlatform 
+                            x:TypeArguments="Color"
+                            Android="#EC1F4B">
+                        </OnPlatform>
+                    </Button.BackgroundColor>
+                </Button>
+                <Button x:Name="AuditButton_"  Text="Audit" Clicked="AuditButton" Margin="10,0,10,0" WidthRequest="150">
+                    <Button.BackgroundColor>
+                        <OnPlatform 
+                            x:TypeArguments="Color"
+                            Android="LightBlue">
+                        </OnPlatform>
+                    </Button.BackgroundColor>
+                </Button>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="eQuipMobile.TransferModalpage"
+             Title="Transfer Modal Page">
+    <ContentPage.Content>
+        <StackLayout Margin="20">
+            <StackLayout Orientation="Horizontal" Margin="10,0,0,0" VerticalOptions="CenterAndExpand">
+                <Label x:Name="AssetName_"  VerticalOptions="Center"/>
+                <Entry Text="{Binding AssetName}"  x:Name="assetName_" WidthRequest="200" HorizontalOptions="EndAndExpand" IsEnabled="False"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Margin="10,0,0,0" VerticalOptions="CenterAndExpand">
+                <Label x:Name="Barcode" VerticalOptions="Center"  />
+                <Entry IsEnabled="False" Text="{Binding Barcode}"   WidthRequest="200" HorizontalOptions="EndAndExpand" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Margin="10,0,0,0" VerticalOptions="CenterAndExpand">
+                <Label x:Name="SiteName_"  VerticalOptions="Center" />
+                <Entry IsEnabled="False" Text="{Binding SiteName}"  WidthRequest="200" HorizontalOptions="EndAndExpand" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Margin="10,0,0,0" VerticalOptions="CenterAndExpand">
+                <Label x:Name="LocationName_"  VerticalOptions="Center" />
+                <Entry IsEnabled="False" Text="{Binding LocationName}"  WidthRequest="200" HorizontalOptions="EndAndExpand" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Margin="10,0,0,0" VerticalOptions="CenterAndExpand">
+                <Label x:Name="SublocationName_"  VerticalOptions="Center" />
+                <Entry IsEnabled="False" Text="{Binding Asset_SublocationIdInternal}"  WidthRequest="200" HorizontalOptions="EndAndExpand" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Margin="10,0,0,0" VerticalOptions="CenterAndExpand">
+                <Label x:Name="QuantityName_"  VerticalOptions="Center" />
+                <Entry IsEnabled="False" Text="{Binding Quantity}"   WidthRequest="200" HorizontalOptions="EndAndExpand" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Margin="10,0,0,0" VerticalOptions="CenterAndExpand">
+                <Label x:Name="QtyName_to_assign" VerticalOptions="Center" />
+                <Entry Keyboard="Numeric" x:Name="TransferAmount"  WidthRequest="200" HorizontalOptions="EndAndExpand" Placeholder="0"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Margin="10,0,0,0" HorizontalOptions="CenterAndExpand">
+                <Button Margin="30,0,30,0" Text="Cancel" Clicked="Cancel" BackgroundColor="#EC1F4B" TextColor="Black" WidthRequest="100"/>
+                <Button x:Name="TransferButton" Text="Transfer" Clicked="Transfer" Margin="30,0,30,0" BackgroundColor="#3F2BB1" TextColor="White" WidthRequest="100"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

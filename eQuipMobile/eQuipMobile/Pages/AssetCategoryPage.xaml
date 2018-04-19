@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="eQuipMobile.AssetCategoryPage"
+             Title="Asset Category">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="CenterAndExpand" Margin="10,0,10,0">
+            <StackLayout HorizontalOptions="Center" Margin="0,10,0,0">
+                <Label x:Name="_categoryHeader" Text="Root Categories" Font="16" FontAttributes="Bold"/>
+            </StackLayout>
+            
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                <Button Text="Parent" Clicked="parent" Margin="0,10,20,10" BackgroundColor="White" TextColor="Blue"/>
+                <Button Text="Cancel" Clicked="Cancel" Margin="20,10,10,10" BackgroundColor="White" TextColor="Blue"/>
+            </StackLayout>
+            <ListView x:Name="CategoryList" Margin="20,10,20,10" 
+                      HasUnevenRows="True" SeparatorVisibility="None"
+                      ItemSelected="CategoryList_ItemSelected" ItemTapped="CategoryList_ItemTapped"
+                      HorizontalOptions="Center">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame CornerRadius="10" Margin="10,10,10,10" HasShadow="False" VerticalOptions="Center" BackgroundColor="LightGreen">
+                                <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                                    <Label Text="{Binding AssetCategoryName}" TextColor="Black"/>
+                                </StackLayout>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button Text="Select" Clicked="Selected" BackgroundColor="White" TextColor="Blue"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="eQuipMobile.PeopleListPage"
+             Title="People List">
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView x:Name="PeopleListView" Margin="0,20,0,20" 
+                      HasUnevenRows="True" SeparatorVisibility="None" 
+                      ItemSelected="PeopleListView_ItemSelected" ItemTapped="PeopleListView_ItemTapped">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame OutlineColor="Black" CornerRadius="10" BackgroundColor="Transparent" HasShadow="False">
+                                <Frame.Padding>
+                                    <OnPlatform x:TypeArguments="Thickness"
+                                            Android="1,1,1,1"
+                                            iOS="10,10,10,10">
+                                    </OnPlatform>
+                                </Frame.Padding>
+                                <Frame.BackgroundColor>
+                                    <OnPlatform x:TypeArguments="Color"
+                                            Android="Black">
+                                    </OnPlatform>
+                                </Frame.BackgroundColor>
+                                <Frame.Margin>
+                                    <OnPlatform x:TypeArguments="Thickness"
+                                                Android="1,1,1,1"
+                                                iOS="5,5,5,5">
+                                    </OnPlatform>
+                                </Frame.Margin>
+
+
+                                <StackLayout BackgroundColor="Transparent">
+                                    <StackLayout.Padding>
+                                        <OnPlatform x:TypeArguments="Thickness"
+                                            Android="15,5,5,5"
+                                            iOS="10,10,10,0">
+                                        </OnPlatform>
+                                    </StackLayout.Padding>
+                                    <StackLayout.Margin>
+                                        <OnPlatform x:TypeArguments="Thickness"
+                                                Android="1,1,1,1"
+                                                iOS="5,5,5,5">
+                                        </OnPlatform>
+                                    </StackLayout.Margin>
+                                    <StackLayout.BackgroundColor>
+                                        <OnPlatform x:TypeArguments="Color"
+                                                Android="White">
+                                        </OnPlatform>
+                                    </StackLayout.BackgroundColor>
+                                    <Label Text="{Binding PeopleName}" TextColor="#A0384C" FontAttributes="Bold"/>
+                                </StackLayout>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

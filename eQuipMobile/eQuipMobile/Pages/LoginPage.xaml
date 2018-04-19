@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    Title="Login"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="eQuipMobile.LoginPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <StackLayout VerticalOptions="Center" Margin="10,50, 10, 0">
+                    <StackLayout Orientation="Horizontal"   Margin="10,0,0,0" VerticalOptions="CenterAndExpand">
+                        <Label Text="Username"  VerticalOptions="Center"  Margin="0,10,0,0"/>
+                        <Entry Keyboard="Text" WidthRequest="200" HorizontalOptions="EndAndExpand" Placeholder="Username" x:Name="LoginUserName" Text="Admin" />
+                        <!--leslie.mcneely@e-isg.com-->
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal"   Margin="10,0,0,0" VerticalOptions="CenterAndExpand">
+                        <Label Text="Password"  VerticalOptions="Center"  Margin="0,10,0,0"/>
+                        <Entry IsPassword="True" Keyboard="Text" WidthRequest="200" HorizontalOptions="EndAndExpand" Placeholder="Password" x:Name="LoginPassWord" Text="Usevam@123" />
+                        <!--TESTadmin12#-->
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal"   Margin="10,0,0,0" VerticalOptions="CenterAndExpand">
+                        <Label Text="Url"  VerticalOptions="Center"  Margin="0,10,0,0"/>
+                        <Entry Keyboard="Text" WidthRequest="200" HorizontalOptions="EndAndExpand" Placeholder="https://govstaging.e-isg.com" x:Name="LoginUrl" Text="https://govstaging.e-isg.com"/>
+                        <!--equip.e-isg.com-->
+                    </StackLayout>
+                    <StackLayout Margin="0,50,0,0" Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                        <Label Margin="0,5,0,0" Text="Wipe mobile Database"/>
+                        <Switch x:Name="_Reinitialize" IsToggled="False"/>
+                    </StackLayout>
+                    <ActivityIndicator x:Name="ActivityIndicator" Color="Green" IsVisible="False"/>
+                    <StackLayout Margin="0,80,0,0">
+                        <StackLayout Orientation="Horizontal"  HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                            <Label x:Name="SyncdateText" Text="Last Sync Date: "/>
+                            <Label x:Name="_LastSyncDate" Text="mm/dd/yyyy hh:mm:ss"/>
+                        </StackLayout>
+                        
+                        
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                            <Button Text="Cancel" WidthRequest="100" BackgroundColor="#EC1F4B" Clicked="CancelButton" TextColor="Black"/>
+                            <Button Text="Login" WidthRequest="100" BackgroundColor="#3F2BB1" Clicked="Login_Clicked" TextColor="White"/>
+                        </StackLayout>
+                        <Button HorizontalOptions="Center" WidthRequest="100" Text="Logout" Clicked="Logout" BackgroundColor="#EA7C00" TextColor="Black"/>
+                    </StackLayout>
+
+                    <StackLayout HorizontalOptions="Center" >
+                        <Label Text="version 4.0" TextColor="Black"/>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

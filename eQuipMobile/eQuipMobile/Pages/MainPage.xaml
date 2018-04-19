@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--NavigationPage.HasNavigationBar="False" hides navigationbar-->
+<MasterDetailPage 
+    Title="Home" 
+    BackgroundColor="White"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:eQuipMobile"
+    x:Class="eQuipMobile.MainPage">
+    <MasterDetailPage.Master>
+        <ContentPage Title="Main Menu">
+            <ListView x:Name="NavigationListView" 
+                      ItemTapped="NavigationListView_ItemTapped"
+                      ItemSelected="NavigationListView_ItemSelected"
+                      SeparatorVisibility="None"
+                      BackgroundColor="#B8D4F7">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell TextColor="Black" Text="{Binding NavigationName}"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <ContentPage.ToolbarItems>
+                <ToolbarItem x:Name="Login_" Text="Login" Order="Primary" Clicked="ToolbarItem_Clicked" />
+            </ContentPage.ToolbarItems>
+        </ContentPage>
+    </MasterDetailPage.Master>
+    <MasterDetailPage.Detail>
+        <ContentPage BackgroundColor="White">
+            <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                    <Image x:Name="logoImage" HorizontalOptions="Center" Aspect="AspectFit" WidthRequest="200" HeightRequest="100"/>
+                    <Button x:Name="addAssetsButton" Text="Add Assets" TextColor="Black" BackgroundColor="#FFD222"  Margin="0,30,0,30" Clicked="AddAssetsClicked"/>
+                    <Button x:Name="SearchAndEdit" Text=" Search and Edit Assets" TextColor="White" BackgroundColor="#3F2BB1"  Margin="0,0,0,30" Clicked="Button_Clicked"/>
+                    <Button x:Name="Audit" Text="Audit Assets" TextColor="Black" BackgroundColor="#EC1F4B"  Margin="0,0,0,70" Clicked="Button_Clicked_1"/>
+                    <Label  Text="Welcome!"  HorizontalOptions="Center" TextColor="Blue" Font="16" x:Name="HomeLabel"/>
+                </StackLayout>
+                <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                    <Label  HorizontalOptions="Center" TextColor="Red" Font="16" x:Name="_Syncerror"/>
+                    <Label  HorizontalOptions="Center" TextColor="Red" Font="16" x:Name="_assetsync"/>
+                </StackLayout>
+            </StackLayout>
+            
+        </ContentPage>
+    </MasterDetailPage.Detail>
+
+</MasterDetailPage>

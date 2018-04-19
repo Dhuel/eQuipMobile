@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="eQuipMobile.TransferListPage">
+    <ContentPage.Content>
+        <StackLayout Margin="20">
+            <ListView x:Name="TransferListView" 
+                            ItemSelected="TransferListView_ItemSelected"
+                            ItemTapped="TransferListView_ItemTapped"
+                            Margin="0,20,0,20" 
+                            HasUnevenRows="True"
+                            SeparatorVisibility="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame OutlineColor="Black" CornerRadius="10" BackgroundColor="Transparent" HasShadow="False">
+                                <Frame.Padding>
+                                    <OnPlatform x:TypeArguments="Thickness"
+                                            Android="1,1,1,1"
+                                            iOS="10,10,10,10">
+                                    </OnPlatform>
+                                </Frame.Padding>
+                                <Frame.BackgroundColor>
+                                    <OnPlatform x:TypeArguments="Color"
+                                            Android="Black">
+                                    </OnPlatform>
+                                </Frame.BackgroundColor>
+                                <Frame.Margin>
+                                    <OnPlatform x:TypeArguments="Thickness"
+                                                Android="1,1,1,1"
+                                                iOS="5,5,5,5">
+                                    </OnPlatform>
+                                </Frame.Margin>
+
+                                
+                                <StackLayout BackgroundColor="Transparent">
+                                    <StackLayout.Padding>
+                                        <OnPlatform x:TypeArguments="Thickness"
+                                            Android="15,5,5,5"
+                                            iOS="10,10,10,0">
+                                        </OnPlatform>
+                                    </StackLayout.Padding>
+                                    <StackLayout.Margin>
+                                        <OnPlatform x:TypeArguments="Thickness"
+                                                Android="1,1,1,1"
+                                                iOS="5,5,5,5">
+                                        </OnPlatform>
+                                    </StackLayout.Margin>
+                                    <StackLayout.BackgroundColor>
+                                        <OnPlatform x:TypeArguments="Color"
+                                                Android="White">
+                                        </OnPlatform>
+                                    </StackLayout.BackgroundColor>
+                                    <Label Text="{Binding AssetName}" FontSize="22" TextColor="#A0384C" FontAttributes="Bold"/>
+                                    <Label Text="{Binding AsseDetailBarcode_}" TextColor="Black"/>
+                                    <Label Text="{Binding AsseDetailSite_}" TextColor="Black"/>
+                                    <Label Text="{Binding AsseDetailLocation_}" TextColor="Black"/>
+                                    <Label Text="{Binding AsseDetailSubLocation_}" TextColor="Black"/>
+                                    <Label Text="{Binding AsseDetailQuantity_}" TextColor="Black"/>
+                                </StackLayout>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button Text="Cancel" Clicked="Button_Clicked_1">
+                <Button.BackgroundColor>
+                    <OnPlatform 
+                            x:TypeArguments="Color"
+                            Android="#3F2BB1">
+                    </OnPlatform>
+                </Button.BackgroundColor>
+                <Button.TextColor>
+                    <OnPlatform 
+                            x:TypeArguments="Color"
+                            Android="White">
+                    </OnPlatform>
+                </Button.TextColor>
+            </Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

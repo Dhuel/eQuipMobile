@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="eQuipMobile.TransferAssetsPage"
+             Title="Transfer Assets">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+            <Button x:Name="TWWO"  Text="Transfer without work order" TextColor="Black" BackgroundColor="#FFD222"  Margin="0,90,0,30" Clicked="Button_Clicked"  WidthRequest="200"/>
+            <!--<Button Text="Transfer with work order" TextColor="Black" BackgroundColor="#EC1F4B"  Margin="0,0,0,30" Clicked="Button_Clicked_1"  WidthRequest="200"/>-->
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="eQuipMobile.ScanBarcodePage"
+             Title="Scan Barcode">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout HorizontalOptions="Center" Margin="0, 20, 0, 0">
+                <Label HorizontalOptions="Center" Text="Scan Barcode" Font="28"/>
+                <Label Margin="20,0,0,0" HorizontalOptions="Center" x:Name="ScanLabel" Text="Scan a barcode label to quickly find its asset."/>
+            </StackLayout>
+            <StackLayout Margin=" 20,20,20,0">
+                <Frame CornerRadius="10" HasShadow="False" OutlineColor="Transparent" BackgroundColor="LightGreen">
+                    <StackLayout VerticalOptions="Center">
+                        <SearchBar x:Name="searchbar" Placeholder="Search..." PlaceholderColor="Black" 
+                                    SearchButtonPressed="SearchBar_SearchButtonPressed" BackgroundColor="Transparent" TextColor="Black" CancelButtonColor="Red" HeightRequest="50"/>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                            <Button Text="Search..." Margin="0,0,10,0" Clicked="SearchBar_SearchButtonPressed" BackgroundColor="LightBlue" WidthRequest="190" TextColor="Black"/>
+                            <Image x:Name="BarcodeImage" Margin="50,0,10,0" WidthRequest="30" HeightRequest="30">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="BarcodeIconTapped"/>
+                                </Image.GestureRecognizers>
+                            </Image>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+
+
+                <ListView x:Name="assetbarcodeListview" 
+                            ItemSelected="assetbarcodeListview_ItemSelected"
+                            ItemTapped="assetbarcodeListview_ItemTapped"
+                            Margin="0,20,0,20" 
+                            HasUnevenRows="True"
+                            SeparatorVisibility="None">
+                    <ListView.ItemTemplate >
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame OutlineColor="Black" CornerRadius="10" BackgroundColor="Transparent" HasShadow="False">
+                                    <Frame.Padding>
+                                        <OnPlatform x:TypeArguments="Thickness"
+                                            Android="1,1,1,1"
+                                            iOS="10,10,10,10">
+                                        </OnPlatform>
+                                    </Frame.Padding>
+                                    <Frame.BackgroundColor>
+                                        <OnPlatform x:TypeArguments="Color"
+                                            Android="Black">
+                                        </OnPlatform>
+                                    </Frame.BackgroundColor>
+                                    <Frame.Margin>
+                                        <OnPlatform x:TypeArguments="Thickness"
+                                                Android="1,1,1,1"
+                                                iOS="5,5,5,5">
+                                        </OnPlatform>
+                                    </Frame.Margin>
+
+                                    <StackLayout BackgroundColor="Transparent">
+                                        <StackLayout.Padding>
+                                            <OnPlatform x:TypeArguments="Thickness"
+                                            Android="15,5,5,5"
+                                            iOS="10,10,10,0">
+                                            </OnPlatform>
+                                        </StackLayout.Padding>
+                                        <StackLayout.Margin>
+                                            <OnPlatform x:TypeArguments="Thickness"
+                                                Android="1,1,1,1"
+                                                iOS="5,5,5,5">
+                                            </OnPlatform>
+                                        </StackLayout.Margin>
+                                        <StackLayout.BackgroundColor>
+                                            <OnPlatform x:TypeArguments="Color"
+                                                Android="White">
+                                            </OnPlatform>
+                                        </StackLayout.BackgroundColor>
+                                        <Label Text="{Binding AssetName}" FontSize="22" TextColor="#A0384C" FontAttributes="Bold"/>
+                                        <Label Text="{Binding AsseDetailBarcode_}" TextColor="Black"/>
+                                        <Label Text="{Binding AsseDetailSite_}" TextColor="Black"/>
+                                        <Label Text="{Binding AsseDetailLocation_}" TextColor="Black"/>
+                                        <Label Text="{Binding AsseDetailSubLocation_}" TextColor="Black"/>
+                                    </StackLayout>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+            <Button Text="Check out" x:Name="CheckOutButton" IsVisible="False" Clicked="CheckOutButton_Clicked">
+                <Button.BackgroundColor>
+                    <OnPlatform 
+                            x:TypeArguments="Color"
+                            Android="#3F2BB1">
+                    </OnPlatform>
+                </Button.BackgroundColor>
+                <Button.TextColor>
+                    <OnPlatform 
+                            x:TypeArguments="Color"
+                            Android="White">
+                    </OnPlatform>
+                </Button.TextColor>
+            </Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

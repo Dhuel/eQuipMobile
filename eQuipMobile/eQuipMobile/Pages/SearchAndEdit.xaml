@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="eQuipMobile.SearchAndEditPage"
+             Title="Search &amp; Edit Asset"
+             BackgroundColor="White">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+            <Label x:Name="title_" Text="Search &amp; Edit Assets"  HorizontalOptions="Center" TextColor="Black" Font="22"/>
+            <Button x:Name="ScanBarcode"  Text="Scan Barcode" TextColor="Black" BackgroundColor="#FFD222"  Margin="0,90,0,30" Clicked="Button_Clicked_1"  WidthRequest="200"/>
+            <Button x:Name="Advancedsearch"  Text="Advanced Search" TextColor="Black" BackgroundColor="#EC1F4B"  Margin="0,0,0,30" Clicked="Button_Clicked"  WidthRequest="200"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

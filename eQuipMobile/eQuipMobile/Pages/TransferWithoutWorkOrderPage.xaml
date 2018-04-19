@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="eQuipMobile.TransferWithoutWorkOrderPage"
+             Title="Transfer without work order">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout x:Name="HeaderForWorkflow" Margin="20,20,20,20">
+                <Label x:Name="HeaderText"
+                VerticalOptions="Center"/>
+                <StackLayout>
+                    <Frame CornerRadius="10" HasShadow="False" OutlineColor="Transparent" BackgroundColor="LightGreen">
+                        <StackLayout VerticalOptions="Center">
+                            <SearchBar x:Name="TransferSearchBar" Placeholder="Search..." PlaceholderColor="Black" 
+                                    SearchButtonPressed="Button_Clicked" BackgroundColor="Transparent" TextColor="Black" CancelButtonColor="Red" HeightRequest="40"/>
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand">
+                                <Button Text="Search..." Margin="0,0,10,0" Clicked="Button_Clicked" BackgroundColor="LightBlue" WidthRequest="190" TextColor="Black" HorizontalOptions="Center">
+                                </Button>
+                                <Image x:Name="BarcodeImage" Margin="50,0,10,0" WidthRequest="30" HeightRequest="30">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="BarcodeIconTapped"/>
+                                    </Image.GestureRecognizers>
+                                </Image>
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+                <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand">
+                    <StackLayout Orientation="Horizontal"  Margin="10,0,0,0" VerticalOptions="CenterAndExpand">
+                        <Label x:Name="SiteName_" VerticalOptions="Center"  Margin="0,10,0,0"/>
+                        <Picker Title="Select Site" x:Name="assetSite_" WidthRequest="200" HorizontalOptions="EndAndExpand" SelectedIndexChanged="AssetSite__SelectedIndexChanged"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal"  Margin="10,0,0,0" VerticalOptions="CenterAndExpand">
+                        <Label x:Name="LocationName_" VerticalOptions="Center"  Margin="0,10,0,0"/>
+                        <Picker Title="Select Location" x:Name="assetLocation_" WidthRequest="200" HorizontalOptions="EndAndExpand" SelectedIndexChanged="AssetLocation__SelectedIndexChanged"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal"  Margin="10,0,0,0" VerticalOptions="CenterAndExpand">
+                        <Label x:Name="SubLocationName_" VerticalOptions="Center"  Margin="0,10,0,0"/>
+                        <Picker Title="Select Sublocation" x:Name="assetSubLocation_" WidthRequest="200" HorizontalOptions="EndAndExpand" />
+                    </StackLayout>
+                    <StackLayout x:Name="Peopledisplay" IsVisible="False" Orientation="Horizontal"  Margin="10,0,0,0" VerticalOptions="CenterAndExpand">
+                        <Label x:Name="PersonName_" VerticalOptions="Center"  Margin="0,10,0,0"/>
+                        <Picker Title="Select Person" x:Name="person_" WidthRequest="200" HorizontalOptions="EndAndExpand" />
+                    </StackLayout>
+                    <StackLayout x:Name="transferTypevisibily" Orientation="Horizontal"  Margin="10,0,0,0" VerticalOptions="CenterAndExpand" IsVisible="False">
+                        <Label Text="TransferType" VerticalOptions="Center"  Margin="0,10,0,0"/>
+                        <Picker Title="Transfer Type" x:Name="transfertype_" WidthRequest="200" HorizontalOptions="EndAndExpand"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal"  Margin="10,0,0,0" VerticalOptions="CenterAndExpand">
+                        <Label x:Name="TransferringAssetsText" Text="Transferring assets count" VerticalOptions="Center"  Margin="0,10,0,0"/>
+                        <Entry Keyboard="Numeric" x:Name="scanned_" Text="0" IsEnabled="False" WidthRequest="50" HorizontalOptions="EndAndExpand" />
+                    </StackLayout>
+                </StackLayout>
+
+                <Button x:Name="TransferAssetButton" Text="Transfer Asset(s)" Clicked="Transfer">
+                    <Button.BackgroundColor>
+                        <OnPlatform 
+                            x:TypeArguments="Color"
+                            Android="#3F2BB1">
+                        </OnPlatform>
+                    </Button.BackgroundColor>
+                    <Button.TextColor>
+                        <OnPlatform 
+                            x:TypeArguments="Color"
+                            Android="White">
+                        </OnPlatform>
+                    </Button.TextColor>
+                </Button>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

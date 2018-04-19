@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="eQuipMobile.SettingsPage"
+             Title="Settings">
+    <ContentPage.Content>
+        <StackLayout Margin="20,0,20,0">
+            <StackLayout.Margin>
+                <OnPlatform 
+                            x:TypeArguments="Thickness"
+                            iOS="0">
+                </OnPlatform>
+            </StackLayout.Margin>
+            <TableView Intent="Settings" HasUnevenRows="True" Margin="20,0,20,0">
+            <TableRoot>
+                <TableSection Title="Mobile Settings" >
+                    <ViewCell>
+                        <StackLayout Padding="20">
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Price Lock"/>
+                                <Switch x:Name="pricelock" IsToggled="{Binding PriceLock}" Toggled="Settings_OnChanged" HorizontalOptions="EndAndExpand"/>
+                            </StackLayout>
+                            <Label Text="Locks the price of assets so that they cannot be changed."/>
+                        </StackLayout>
+                    </ViewCell>
+                    <ViewCell>
+                            <StackLayout  Padding="20">
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Fast Audit"/>
+                                <Switch x:Name="fastaudit" IsToggled="{Binding FastAudit}" Toggled="Settings_OnChanged" HorizontalOptions="EndAndExpand"/>
+                            </StackLayout>
+                            <Label Text="Allows the user to quickly audit an asset through the audit by location screen."/>
+                        </StackLayout>
+                    </ViewCell>
+                        <ViewCell>
+                            <StackLayout  Padding="20">
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Fast Audit Data Entry"/>
+                                    <Switch x:Name="fastauditentry" IsToggled="{Binding FastAuditEntry}" Toggled="Settings_OnChanged" HorizontalOptions="EndAndExpand"/>
+                                </StackLayout>
+                                <Label Text="If enabled, allows the user to enter asset data during the audit of new assets even if fast audit is turned on."/>
+                            </StackLayout>
+                        </ViewCell>
+                        <ViewCell>
+                            <StackLayout Padding="20">
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Blind Audit"/>
+                                <Switch x:Name="blindaudit" IsToggled="{Binding BlindAudit}" Toggled="Settings_OnChanged" HorizontalOptions="EndAndExpand"/>
+                            </StackLayout>
+                            <Label Text="Removes the quantity from the audit screens."/>
+                        </StackLayout>
+                    </ViewCell>
+                        <ViewCell>
+                            <StackLayout Padding="20">
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Front Camera"/>
+                                    <Switch x:Name="frontcamera" IsToggled="{Binding FrontCamera}" Toggled="Settings_OnChanged" HorizontalOptions="EndAndExpand"/>
+                                </StackLayout>
+                                <Label Text="Sets the barcode camera to the front camera if possible."/>
+                            </StackLayout>
+                        </ViewCell>
+                        <ViewCell>
+                            <StackLayout  Padding="20">
+                                <Label Text="Mobile Sites"/>
+                            <Label Text="Press the button below to see and edit your mobile sites."/>
+                        </StackLayout>
+                    </ViewCell>
+                </TableSection>
+            </TableRoot> 
+        </TableView>
+            <StackLayout>
+                <Button Text="Show mobile sites" Clicked="ShowMobileSites">
+                    <Button.BackgroundColor>
+                        <OnPlatform 
+                            x:TypeArguments="Color"
+                            Android="#3F2BB1">
+                        </OnPlatform>
+                    </Button.BackgroundColor>
+                    <Button.TextColor>
+                        <OnPlatform 
+                            x:TypeArguments="Color"
+                            Android="White">
+                        </OnPlatform>
+                    </Button.TextColor>
+                </Button>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
